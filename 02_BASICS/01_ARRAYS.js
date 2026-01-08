@@ -46,6 +46,55 @@ basically when slice is used the original array stays same
 but when splice is used the original array is manipulated and the slice portion is removed from it
 */
 
+// bad way to merge
+
+const india = ["dhoni","virat"]
+const england = ["stokes","cook"]
+
+india.push(england)         // the second array is treated as single ele in first array when pushed
+console.log(india);             
+console.log(india[2][0]);
+
+
+// good way
+
+const all = india.concat(england)
+console.log(all);
+
+// best way (using spread which allows multiple arrays unlike concat)
+
+const newall = [...india, ...england]
+console.log(newall);
+
+// when mulitple nested arrays (using flat)
+
+const another_array = [1,2,3,[4,5],6,[7,8,[1,5]]]
+const real_array = another_array.flat(Infinity)
+console.log(real_array);
+
+// converting anything like object,strings etc to array (using from)
+
+console.log(Array.isArray("abhi"));
+console.log(Array.from("abhi"));
+
+console.log(Array.from({name: "abhi"})); // it will return an empty array bcz it cannot decide on own whether to provide an array of key or value
+
+// for multiple arrays,values etc (using of)
+
+let score1 = 100
+let score2 = 150
+let score3 = 210
+
+console.log(Array.of(score1,score2,score3));
+
+
+
+
+
+
+
+
+
 
 
 
